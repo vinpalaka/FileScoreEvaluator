@@ -79,6 +79,9 @@ public class ScoreReader {
             throw new ScoreEvaluationException("Found Line with Invalid Json");
         }
         String id = jsonNode.get("id").textValue();
+        if(id == null) {
+            throw new ScoreEvaluationException("No Id found" + scoreString);
+        }
         score.setId(id);
         return score;
     }
